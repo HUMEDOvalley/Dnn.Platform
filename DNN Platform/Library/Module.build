@@ -8,9 +8,17 @@
     <WebsiteInstallPath>$(WebsitePath)\Install</WebsiteInstallPath>
     <WebsiteHostPortalPath>$(WebsitePath)\Portals\_default</WebsiteHostPortalPath>
     <WebsiteRadSpellPath>$(WebsitePath)\App_Data\RadSpell</WebsiteRadSpellPath>
+    <MaverickExternalsPath>$(MSBuildProjectDirectory)\..\..\..\Dnn.Maverick\Externals\DotNetNuke</MaverickExternalsPath>
   </PropertyGroup>
   <Import Project="$(BuildScriptsPath)\MSBuild.Community.Tasks.Targets" />
-  <Target Name="AfterBuild" DependsOnTargets="GetFiles;DebugProject;ReleasePackages">
+  <Target Name="AfterBuild" DependsOnTargets="CopyMaverick;GetFiles;DebugProject;ReleasePackages">
+  </Target>
+  
+  <Target Name="CopyMaverick">
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\bin\DotNetNuke.dll" DestinationFolder="$(MaverickExternalsPath)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\bin\DotNetNuke.Instrumentation.dll" DestinationFolder="$(MaverickExternalsPath)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\bin\DotNetNuke.Log4Net.dll" DestinationFolder="$(MaverickExternalsPath)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\..\Components\PetaPoco\bin\PetaPoco.dll" DestinationFolder="$(MaverickExternalsPath)" />
   </Target>
   
   <Target Name="GetFiles">
