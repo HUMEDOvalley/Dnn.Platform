@@ -189,20 +189,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 		DNN Platform\Website\Templates\Default Website.template.resources = DNN Platform\Website\Templates\Default Website.template.resources
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DNN_Maverick", "http://localhost/DNN_Maverick", "{D9CD5430-A4B5-4EBA-9E2B-046ED332EF16}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DNN_Platform_Mvc", "http://localhost/DNN_Platform_Mvc", "{35EA36AA-1AA1-4CAE-A935-7F65DAA6D06E}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "false"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/DNN_Maverick"
+		Debug.AspNetCompiler.VirtualPath = "/DNN_Platform_Mvc"
 		Debug.AspNetCompiler.PhysicalPath = "Website\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\DNN_Maverick\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\DNN_Platform_Mvc\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/DNN_Maverick"
+		Release.AspNetCompiler.VirtualPath = "/DNN_Platform_Mvc"
 		Release.AspNetCompiler.PhysicalPath = "Website\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\DNN_Maverick\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\DNN_Platform_Mvc\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
@@ -498,10 +498,10 @@ Global
 		{0E8502FD-DE8B-46A5-AB96-B1BE39777917}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E8502FD-DE8B-46A5-AB96-B1BE39777917}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E8502FD-DE8B-46A5-AB96-B1BE39777917}.Release|x86.ActiveCfg = Release|Any CPU
-		{D9CD5430-A4B5-4EBA-9E2B-046ED332EF16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9CD5430-A4B5-4EBA-9E2B-046ED332EF16}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D9CD5430-A4B5-4EBA-9E2B-046ED332EF16}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9CD5430-A4B5-4EBA-9E2B-046ED332EF16}.Release|x86.ActiveCfg = Debug|Any CPU
+		{35EA36AA-1AA1-4CAE-A935-7F65DAA6D06E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EA36AA-1AA1-4CAE-A935-7F65DAA6D06E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{35EA36AA-1AA1-4CAE-A935-7F65DAA6D06E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EA36AA-1AA1-4CAE-A935-7F65DAA6D06E}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

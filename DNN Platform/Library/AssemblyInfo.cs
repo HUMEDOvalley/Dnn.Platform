@@ -47,6 +47,7 @@ using DotNetNuke.Application;
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 [assembly: InternalsVisibleTo("DotNetNuke.Web")]
 [assembly: InternalsVisibleTo("DotNetNuke.HttpModules")]
+[assembly: InternalsVisibleTo("Dnn.Mvc.Web")]
 [assembly: InternalsVisibleTo("DotNetNuke.Modules.MemberDirectory")]
 [assembly: InternalsVisibleTo("DotNetNuke.Provider.AspNetProvider")]
 [assembly: InternalsVisibleTo("DotNetNuke.Tests.Content")]
