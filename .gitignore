@@ -139,6 +139,8 @@ DNN [Pp]latform/Syndication/[Bb]in/*
 
 [Ww]ebsite/[Ll]icenses/*.txt
 
+[Ww]ebsite/[Mm]odules
+
 [Ww]ebsite/[Pp]ortals/_default/[Ll]ogs
 [Ww]ebsite/[Pp]ortals/_default/[Mm]erged[Tt]emplate
 [Ww]ebsite/[Pp]ortals/_default/[Bb]lank [Ww]ebsite*.*
