@@ -1,0 +1,100 @@
+﻿@using Dnn.Mvc.Web.Helpers
+@using DotNetNuke.Entities.Tabs
+
+@{
+    IList<TabInfo> pages = Model.Pages;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Project Maverick</title>
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Maverick", "Index", "Page", new { page = Model.HomePage }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @Dnn.RenderMenu(pages)
+                <ul class="nav navbar-nav navbar-right">
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            var routeValues = new RouteValueDictionary() {{"page", null}};
+                            
+                            <li><p class="navbar-text">Welcome @Context.User.Identity.Name</p></li>
+                            <li><a href="@Url.Action("SignOff", "Authentication", routeValues)">Sign Off</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="signin">Sign In</a></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <div class="jumbotron">
+            @Dnn.RenderLogo("")
+        </div>
+
+        @Dnn.RenderBreadCrumbs()
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My Dnn Mvc Application</p>
+        </footer>
+    </div>
+    
+    @{
+        if (!Request.IsAuthenticated)
+        {
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $(".nav a.signin").dnnPopup({
+                        action: "open",
+                        actionUrl: "@Url.Action("SignIn", "Authentication")",
+                        data: { "returnUrl": "@Request.RawUrl" }
+                    });
+
+                    @*$(".nav a.signin").click(function () {
+                        $.ajax({
+                            url: "@Url.Action("SignIn", "Authentication")",
+                            datatype: "html",
+                            contenttyep: "application/html; charset=utf-8",
+                            type: "GET",
+                            data: { "returnUrl": "@Request.RawUrl" },
+                            success: function (result) {
+                                var $modal = $(result);
+                                $("body").append($modal);
+                                $modal.filter(".modal").modal();
+                            },
+                            error: function (xhr, status) {
+
+                            }
+                        });
+                    });*@
+                    });
+            </script>
+        }
+    }
+
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="~/js/dnn.mvc.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

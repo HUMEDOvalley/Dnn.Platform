@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PlatformWebsitePath>$(MaverickRoot)\..\..\Website</PlatformWebsitePath>
+  </PropertyGroup>
+
+  <Target Name="AfterBuild" DependsOnTargets="DebugProject"></Target>
+
+  <Target Name="GetFiles">
+    <ItemGroup>
+      <Assemblies Include="bin\*.dll" />
+      <ClientScripts Include="js\*.*" />
+      <ModuleViews Include="Modules\**\*.*" />
+      <Resources Include="Resources\**\*.*" />
+      <Views Include="Views\**\*.*" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="DebugProject" DependsOnTargets="GetFiles">
+    <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\..\Website\bin" />
+    <Copy SourceFiles="@(ClientScripts)" DestinationFolder="..\..\Website\js" />
+    <Copy SourceFiles="@(ModuleViews)" DestinationFolder="..\..\Website\Modules\%(RecursiveDir)" />
+    <Copy SourceFiles="@(Resources)" DestinationFolder="..\..\Website\Resources\%(RecursiveDir)" />
+    <Copy SourceFiles="@(Views)" DestinationFolder="..\..\Website\Views\%(RecursiveDir)" />
+  </Target>
+
+</Project>
