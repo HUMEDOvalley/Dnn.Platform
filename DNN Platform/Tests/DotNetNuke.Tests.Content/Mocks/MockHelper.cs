@@ -33,7 +33,6 @@ using DotNetNuke.Entities.Content.Data;
 using DotNetNuke.Entities.Content.Taxonomy;
 using DotNetNuke.Services.FileSystem;
 using DotNetNuke.Tests.Utilities;
-using DotNetNuke.Web.Validators;
 
 using Moq;
 using FileController = DotNetNuke.Entities.Content.AttachmentController;

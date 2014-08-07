@@ -23,7 +23,6 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Linq;
-using System.Web.Services.Description;
 using System.Xml;
 
 using DotNetNuke.Common.Utilities;

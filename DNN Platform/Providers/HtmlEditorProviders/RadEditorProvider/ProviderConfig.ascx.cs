@@ -21,7 +21,7 @@
 
 using System.Text.RegularExpressions;
 using System.Web.Configuration;
-using System.Web.Services.Description;
+
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Tabs;
 using DotNetNuke.Security.Roles;
