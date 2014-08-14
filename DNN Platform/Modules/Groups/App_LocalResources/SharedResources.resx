@@ -325,4 +325,7 @@
   <data name="GroupName.Invalid" xml:space="preserve">
     <value>The Name is invalid - roles can not contain the following characters: &amp; $ + , / ? ~ # &lt; &gt; ( ) ¿ ¡ « » !  . :  * ' [ ]</value>
   </data>
+  <data name="GroupListed.Text" xml:space="preserve">
+    <value>&lt;strong&gt;&lt;b&gt;Listed:&lt;/b&gt; Users can search group and request to join.&lt;/strong&gt;</value>
+  </data>
 </root>

@@ -42,6 +42,7 @@ namespace DotNetNuke.Modules.Groups
         }
         private void Create_Click(object sender, EventArgs e)
         {
+
             var ps = new Security.PortalSecurity();
             txtGroupName.Text = ps.InputFilter(txtGroupName.Text, Security.PortalSecurity.FilterFlag.NoScripting);
             txtGroupName.Text = ps.InputFilter(txtGroupName.Text, Security.PortalSecurity.FilterFlag.NoMarkup);
@@ -53,7 +54,6 @@ namespace DotNetNuke.Modules.Groups
                 lblInvalidGroupName.Visible = true;
                 return;
             }
-
 
             var modRoles = new List<RoleInfo>();
 			var modUsers = new List<UserInfo>();
@@ -79,8 +79,15 @@ namespace DotNetNuke.Modules.Groups
                 Description = txtDescription.Text,
                 SecurityMode = SecurityMode.SocialGroup,
                 Status = RoleStatus.Approved,
-                IsPublic = rdAccessTypePublic.Checked
+                IsPublic = rdAccessTypePublic.Checked,
+                IsListable = chkGroupList.Checked
             };
+
+            if (roleInfo.IsPublic)
+            {
+                roleInfo.IsListable = true;
+            }
+           
             var userRoleStatus = RoleStatus.Pending;
             if (GroupModerationEnabled)
             {

@@ -61,7 +61,6 @@ namespace DotNetNuke.Modules.Groups
 
             //Add Module to Child Page
             int groupViewModuleId = AddModule(tab, PortalId, "Social Groups", "ContentPane");
-            int journalModuleId = AddModule(tab, PortalId, "Journal", "ContentPane");
             int consoleId = AddModule(tab, PortalId, "Console", "RightPane");
 
             ModuleInfo groupConsoleModule = ModuleController.Instance.GetModule(consoleId, tab.TabID, false);
