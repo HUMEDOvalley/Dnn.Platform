@@ -72,6 +72,7 @@ namespace DotNetNuke.Security.Roles
             BillingFrequency = "N";
             RoleID = Null.NullInteger;
             IsSystemRole = false;
+            IsListable = true;
         }
 
         #region Public Properties
@@ -137,6 +138,14 @@ namespace DotNetNuke.Security.Roles
         /// <value>A boolean (True/False)</value>
         /// -----------------------------------------------------------------------------
         public bool IsPublic { get; set; }
+
+        /// -----------------------------------------------------------------------------
+        /// <summary>
+        /// Gets and sets whether the role is listable
+        /// </summary>
+        /// <value>A boolean (True/False)</value>
+        /// -----------------------------------------------------------------------------
+        public bool IsListable { get; set; }
 
         /// -----------------------------------------------------------------------------
         /// <summary>
@@ -406,6 +415,7 @@ namespace DotNetNuke.Security.Roles
                     }
                 }
 
+                IsListable = Null.SetNullBoolean(dr["IsListable"]);
 
             }
             catch (IndexOutOfRangeException)
@@ -598,6 +608,9 @@ namespace DotNetNuke.Security.Roles
                         case "ispublic":
                             IsPublic = reader.ReadElementContentAsBoolean();
                             break;
+                        case "islistable":
+                            IsListable = reader.ReadContentAsBoolean();
+                            break;
                         case "autoassignment":
                             AutoAssignment = reader.ReadElementContentAsBoolean();
                             break;
@@ -694,6 +707,7 @@ namespace DotNetNuke.Security.Roles
             writer.WriteElementString("trialperiod", TrialPeriod.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("trialfee", TrialFee.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("ispublic", IsPublic.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
+            writer.WriteElementString("islistable", IsListable.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
             writer.WriteElementString("autoassignment", AutoAssignment.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
             writer.WriteElementString("rsvpcode", RSVPCode);
             writer.WriteElementString("iconfile", IconFile);

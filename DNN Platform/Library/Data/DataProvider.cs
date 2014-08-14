@@ -1999,7 +1999,7 @@ namespace DotNetNuke.Data
         public virtual int AddRole(int portalId, int roleGroupId, string roleName, string description, float serviceFee,
                                    string billingPeriod, string billingFrequency, float trialFee, int trialPeriod,
                                    string trialFrequency, bool isPublic, bool autoAssignment, string rsvpCode,
-                                   string iconFile, int createdByUserID, int status, int securityMode, bool isSystemRole)
+                                   string iconFile, int createdByUserID, int status, int securityMode, bool isSystemRole, bool isListable)
         {
             return ExecuteScalar<int>("AddRole",
                                             portalId,
@@ -2019,7 +2019,8 @@ namespace DotNetNuke.Data
                                             createdByUserID,
                                             status,
                                             securityMode,
-                                            isSystemRole);
+                                            isSystemRole,
+                                            isListable);
         }
 
         public virtual void DeleteRole(int roleId)
@@ -2052,7 +2053,7 @@ namespace DotNetNuke.Data
                                        int trialPeriod,
                                        string trialFrequency, bool isPublic, bool autoAssignment, string rsvpCode,
                                        string iconFile, int lastModifiedByUserID, int status, int securityMode,
-                                       bool isSystemRole)
+                                       bool isSystemRole, bool isListable)
         {
             ExecuteNonQuery("UpdateRole",
                                       roleId,
@@ -2072,7 +2073,8 @@ namespace DotNetNuke.Data
                                       lastModifiedByUserID,
                                       status,
                                       securityMode,
-                                      isSystemRole);
+                                      isSystemRole,
+                                      isListable);
         }
 
         public virtual void UpdateRoleSetting(int roleId, string settingName, string settingValue,

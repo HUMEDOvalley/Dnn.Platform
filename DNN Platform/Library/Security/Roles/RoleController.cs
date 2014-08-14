@@ -27,7 +27,6 @@ using System.Linq;
 using System.Xml;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
-using DotNetNuke.Data;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Framework;
@@ -38,7 +37,6 @@ using DotNetNuke.Services.Localization;
 using DotNetNuke.Services.Log.EventLog;
 using DotNetNuke.Services.Mail;
 using DotNetNuke.Services.Messaging.Data;
-using DotNetNuke.Services.Search.Entities;
 
 namespace DotNetNuke.Security.Roles
 {
@@ -267,15 +265,6 @@ namespace DotNetNuke.Security.Roles
             provider.DeleteRole(role);
 
             ClearRoleCache(role.PortalID);
-
-            // queue remove role/group from search index
-            var document = new SearchDocumentToDelete
-            {
-                //PortalId = role.PortalID,
-                RoleId = role.RoleID, // this is unique and sufficient
-            };
-
-            DataProvider.Instance().AddSearchDeletedItems(document);
         }
 
         public RoleInfo GetRole(int portalId, Func<RoleInfo, bool> predicate)
