@@ -120,19 +120,19 @@ namespace DotNetNuke.Entities.Portals
             //create required roles if not already created
             if (administratorRoleId == -1)
             {
-                administratorRoleId = CreateRole(portalId, "Administrators", "Administrators of this Website", 0, 0, "M", 0, 0, "N", false, false);
+                administratorRoleId = CreateRole(portalId, "Administrators", "Administrators of this Website", 0, 0, "M", 0, 0, "N", false, false, false);
             }
             if (registeredRoleId == -1)
             {
-                registeredRoleId = CreateRole(portalId, "Registered Users", "Registered Users", 0, 0, "M", 0, 0, "N", false, true);
+                registeredRoleId = CreateRole(portalId, "Registered Users", "Registered Users", 0, 0, "M", 0, 0, "N", false, true, false);
             }
             if (subscriberRoleId == -1)
             {
-                subscriberRoleId = CreateRole(portalId, "Subscribers", "A public role for site subscriptions", 0, 0, "M", 0, 0, "N", true, true);
+                subscriberRoleId = CreateRole(portalId, "Subscribers", "A public role for site subscriptions", 0, 0, "M", 0, 0, "N", true, true, false);
             }
             if (unverifiedRoleId == -1)
             {
-                CreateRole(portalId, "Unverified Users", "Unverified Users", 0, 0, "M", 0, 0, "N", false, false);
+                CreateRole(portalId, "Unverified Users", "Unverified Users", 0, 0, "M", 0, 0, "N", false, false, false);
             }
             RoleController.Instance.AddUserRole(portalId, administratorId, administratorRoleId, RoleStatus.Approved, false, Null.NullDate, Null.NullDate);
             RoleController.Instance.AddUserRole(portalId, administratorId, registeredRoleId, RoleStatus.Approved, false, Null.NullDate, Null.NullDate);
@@ -504,7 +504,7 @@ namespace DotNetNuke.Entities.Portals
         }
 
         private static int CreateRole(int portalId, string roleName, string description, float serviceFee, int billingPeriod, string billingFrequency, float trialFee, int trialPeriod, string trialFrequency,
-                               bool isPublic, bool isAuto)
+                               bool isPublic, bool isAuto, bool IsListable)
         {
             RoleInfo objRoleInfo = new RoleInfo();
             objRoleInfo.PortalID = portalId;
@@ -519,6 +519,7 @@ namespace DotNetNuke.Entities.Portals
             objRoleInfo.TrialFrequency = trialFrequency;
             objRoleInfo.IsPublic = isPublic;
             objRoleInfo.AutoAssignment = isAuto;
+            objRoleInfo.IsListable = IsListable;
             return CreateRole(objRoleInfo);
         }
 

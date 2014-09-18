@@ -315,7 +315,9 @@ namespace DotNetNuke.Web.InternalServices
                         AuthorProfileUrl = result.AuthorUserId > 0 ? Globals.UserProfileURL(result.AuthorUserId) : string.Empty,
                         AuthorName = result.AuthorName
                     };
-                    group.Results.Add(detail);
+                    if (detail.DocumentTypeName == "Events") {
+                        group.Results.Add(detail);
+                    }
                 }
 
                 groups.Add(group);

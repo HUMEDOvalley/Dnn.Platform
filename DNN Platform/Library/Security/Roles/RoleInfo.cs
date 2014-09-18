@@ -140,6 +140,14 @@ namespace DotNetNuke.Security.Roles
 
         /// -----------------------------------------------------------------------------
         /// <summary>
+        /// Gets and sets whether the role is listable
+        /// </summary>
+        /// <value>A boolean (True/False)</value>
+        /// -----------------------------------------------------------------------------
+        public bool IsListable { get; set; }
+
+        /// -----------------------------------------------------------------------------
+        /// <summary>
         /// Gets and sets the Portal Id for the Role
         /// </summary>
         /// <value>An Integer representing the Id of the Portal</value>
@@ -406,6 +414,7 @@ namespace DotNetNuke.Security.Roles
                     }
                 }
 
+                IsListable = Null.SetNullBoolean(dr["IsListable"]);
 
             }
             catch (IndexOutOfRangeException)
@@ -598,6 +607,9 @@ namespace DotNetNuke.Security.Roles
                         case "ispublic":
                             IsPublic = reader.ReadElementContentAsBoolean();
                             break;
+                        case "islistable":
+                            IsListable = reader.ReadElementContentAsBoolean();
+                            break;
                         case "autoassignment":
                             AutoAssignment = reader.ReadElementContentAsBoolean();
                             break;
@@ -694,6 +706,7 @@ namespace DotNetNuke.Security.Roles
             writer.WriteElementString("trialperiod", TrialPeriod.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("trialfee", TrialFee.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("ispublic", IsPublic.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
+            writer.WriteElementString("islistable", IsListable.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
             writer.WriteElementString("autoassignment", AutoAssignment.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
             writer.WriteElementString("rsvpcode", RSVPCode);
             writer.WriteElementString("iconfile", IconFile);
