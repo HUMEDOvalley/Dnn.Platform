@@ -83,7 +83,9 @@ namespace DotNetNuke.Modules.Groups.Components
             else
                 Template = Utilities.ParseTokenWrapper(Template, "IsMember", false);
 
-            Template = Utilities.ParseTokenWrapper(Template, "AllowJoin", RoleInfo.IsPublic);
+            // Added Join private groups functionality
+            // Template = Utilities.ParseTokenWrapper(Template, "AllowJoin", RoleInfo.IsPublic);
+            Template = Utilities.ParseTokenWrapper(Template, "AllowJoin", true);
 
             Template = Template.Replace("[GROUPEDITBUTTON]", String.Empty);
 

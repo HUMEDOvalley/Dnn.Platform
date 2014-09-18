@@ -55,6 +55,14 @@ namespace DotNetNuke.Modules.Groups
                     rdAccessTypePrivate.Checked = !roleInfo.IsPublic;
                     rdAccessTypePublic.Checked = roleInfo.IsPublic;
                     
+                    if (!roleInfo.IsPublic)
+                    {
+                        chkGroupList.Checked = roleInfo.IsListable;
+                    }
+                    else
+                    {
+                        chkGroupList.Checked = false;
+                    }
 
                     if (roleInfo.Settings.ContainsKey("ReviewMembers"))
                     {
@@ -107,6 +115,13 @@ namespace DotNetNuke.Modules.Groups
                     
                     roleInfo.Description = txtDescription.Text;
                     roleInfo.IsPublic = rdAccessTypePublic.Checked;
+
+                    roleInfo.IsListable = chkGroupList.Checked;
+
+                    if (roleInfo.IsPublic)
+                    {
+                        roleInfo.IsListable = true;
+                    }
 
                     if (roleInfo.Settings.ContainsKey("ReviewMembers"))
                         roleInfo.Settings["ReviewMembers"] = chkMemberApproved.Checked.ToString();

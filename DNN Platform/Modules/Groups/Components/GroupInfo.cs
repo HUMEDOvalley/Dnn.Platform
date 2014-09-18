@@ -49,7 +49,7 @@ namespace DotNetNuke.Entities.Groups
             SecurityMode = roleInfo.SecurityMode;
             ServiceFee = roleInfo.ServiceFee;
             RSVPCode = roleInfo.RSVPCode;
-
+            IsListable = roleInfo.IsListable;
           
 
 

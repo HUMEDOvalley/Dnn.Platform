@@ -74,6 +74,11 @@
                                 <span><%=LocalizeString("Private.Help")%></span>
                             </td>
                         </tr>
+                        <tr id="trList">
+                            <td><div style="margin-left:16px;font-size:11px;">
+                                <asp:CheckBox ID="chkGroupList" runat="server" Checked="false"/><label><%=LocalizeString("GroupListed") %></label>
+                            </div></td>
+                        </tr>
                     </table>
                 </div>
                 <!--close dnnFormItem-->

@@ -169,6 +169,14 @@ namespace DotNetNuke.Modules.Groups
                             notifications.AddGroupOwnerNotification(Constants.MemberPendingNotification, _tabId, _moduleId, _roleInfo, UserInfo);
                             return Request.CreateResponse(HttpStatusCode.OK, new { Result = "success", URL = string.Empty });
                         }
+                         // Private groups added
+                        if (!_roleInfo.IsPublic) //requireApproval)
+                        {
+                            RoleController.Instance.AddUserRole(PortalSettings.PortalId, UserInfo.UserID, _roleInfo.RoleID, RoleStatus.Pending, false, Null.NullDate, Null.NullDate);
+                            var notifications = new Notifications();
+                            notifications.AddGroupOwnerNotification(Constants.MemberPendingNotification, _tabId, _moduleId, _roleInfo, UserInfo);
+                            return Request.CreateResponse(HttpStatusCode.OK, new { Result = "success", URL = string.Empty });
+                        }
                     }
                 }
             }

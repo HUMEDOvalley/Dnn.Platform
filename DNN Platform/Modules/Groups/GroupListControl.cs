@@ -122,7 +122,8 @@ namespace DotNetNuke.Modules.Groups.Controls
             if (DisplayCurrentUserGroups)
                 whereCls.Add(grp => currentUser.IsInRole(grp.RoleName));
             else
-                whereCls.Add(grp => grp.IsPublic || currentUser.IsInRole(grp.RoleName) || currentUser.IsInRole(PortalSettings.AdministratorRoleName));
+                whereCls.Add(grp => grp.IsListable || grp.IsPublic || currentUser.IsInRole(grp.RoleName) || currentUser.IsInRole(PortalSettings.AdministratorRoleName));
+                //whereCls.Add(grp => grp.IsPublic || currentUser.IsInRole(grp.RoleName) || currentUser.IsInRole(PortalSettings.AdministratorRoleName));
 
             if (!string.IsNullOrEmpty(SearchFilter))
             {
