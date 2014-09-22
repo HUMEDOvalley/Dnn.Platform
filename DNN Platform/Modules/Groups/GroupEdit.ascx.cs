@@ -52,8 +52,20 @@ namespace DotNetNuke.Modules.Groups
                         litGroupName.Text = roleInfo.RoleName;
                     
                     txtDescription.Text = roleInfo.Description;
+
                     rdAccessTypePrivate.Checked = !roleInfo.IsPublic;
                     rdAccessTypePublic.Checked = roleInfo.IsPublic;
+
+                    //Modified to hidde options of public group if the group is private
+                    //if (rdAccessTypePrivate.Checked) {
+                      //  trMem.Visible = false;
+                    //}
+
+                    //Modified to hidde options of private group if the group is public
+                    //if (rdAccessTypePublic.Checked)
+                    //{
+                      //  trList.Visible = false;
+                    //}
                     
                     if (!roleInfo.IsPublic)
                     {
@@ -62,6 +74,7 @@ namespace DotNetNuke.Modules.Groups
                     else
                     {
                         chkGroupList.Checked = false;
+
                     }
 
                     if (roleInfo.Settings.ContainsKey("ReviewMembers"))

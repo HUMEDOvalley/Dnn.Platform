@@ -69,12 +69,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:RadioButton ID="rdAccessTypePrivate" GroupName="AccessType" runat="server" />
+                                <asp:RadioButton ID="rdAccessTypePrivate" GroupName="AccessType" runat="server"/>
                                 <label><%=LocalizeString("Private.Text")%></label> 
                                 <span><%=LocalizeString("Private.Help")%></span>
                             </td>
                         </tr>
-                        <tr id="trList">
+                        <tr id="trList" hidden>
                             <td><div style="margin-left:16px;font-size:11px;">
                                 <asp:CheckBox ID="chkGroupList" runat="server" Checked="false"/><label><%=LocalizeString("GroupListed") %></label>
                             </div></td>
@@ -99,11 +99,11 @@
     jQuery(document).ready(function ($) {
         $('#<%=rdAccessTypePublic.ClientID %>').change(function () {
             $('#trMem').show();
-
+            $('#trList').hide();
         });
         $('#<%=rdAccessTypePrivate.ClientID %>').change(function () {
             $('#trMem').hide();
-
+            $('#trList').show();
         });
     });
 </script>

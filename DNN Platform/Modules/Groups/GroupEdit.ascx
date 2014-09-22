@@ -90,12 +90,28 @@
 </div>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
-        $('#<%=rdAccessTypePublic.ClientID %>').change(function () {
+
+        if ($('#<%=rdAccessTypePublic.ClientID %>').is(':checked')) {
             $('#trMem').show();
+            $('#trList').hide();
+            
+        }
+
+        if ($('#<%=rdAccessTypePrivate.ClientID %>').is(':checked')) {
+            $('#trMem').hide();
+            $('#trList').show();
+        }
+
+        $('#<%=rdAccessTypePublic.ClientID %>').change(function () {
+            $('#chkGroupList').removeAttr('checked');
+            $('#trMem').show();
+            $('#trList').hide();
 
         });
         $('#<%=rdAccessTypePrivate.ClientID %>').change(function () {
+            $('#chkMemberApproved').prop('checked', false);
             $('#trMem').hide();
+            $('#trList').show();
 
         });
     });
